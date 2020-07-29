@@ -27,7 +27,7 @@
         <li class="nav-item has-treeview menu-open">
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link active">
+              <a href="{{ route('companies.index') }}" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>{{ __('Companies') }}</p>
               </a>

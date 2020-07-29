@@ -26,8 +26,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   @include('layouts.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  @yield('content')
+  <!-- Content Wrapper -->
+  @include('layouts.content')
 
   <!-- Footer -->
   @include('layouts.footer')
