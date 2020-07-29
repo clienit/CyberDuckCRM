@@ -9,7 +9,7 @@
       <a href="{{ route('companies.index') }}" class="nav-link">{{ __('Companies') }}</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link">{{ __('Employees') }}</a>
+      <a href="{{ route('employees.index') }}" class="nav-link">{{ __('Employees') }}</a>
     </li>
   </ul>
 </nav>
