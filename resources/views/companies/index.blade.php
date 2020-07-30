@@ -19,7 +19,6 @@
           <th style="width: 10px">#</th>
           <th>{{ __('Name') }}</th>
           <th>{{ __('Email') }}</th>
-          <th>{{ __('Logo') }}</th>
           <th>{{ __('Website') }}</th>
           <th style="width: 280px">{{ __('Actions') }}</th>
         </tr>
@@ -30,7 +29,6 @@
           <td>{{ ++$i }}</td>
           <td>{{ $company->name }}</td>
           <td>{{ $company->email }}</td>
-          <td>{{ $company->logo }}</td>
           <td>{{ $company->website }}</td>
           <td>
             <form action="{{ route('companies.destroy',$company->id) }}" method="POST">

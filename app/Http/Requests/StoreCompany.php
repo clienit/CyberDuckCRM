@@ -15,6 +15,7 @@ class StoreCompany extends FormRequest
     {
         return [
             'name' => 'required',
+            'logo' => 'image|dimensions:min_width=100,min_height=100',
         ];
     }
 
@@ -27,6 +28,7 @@ class StoreCompany extends FormRequest
     {
         return [
             'name.required' => 'A name is required',
+            'logo.dimensions' => 'Minimum logo dimention has to be 100x100',
         ];
     }
 }

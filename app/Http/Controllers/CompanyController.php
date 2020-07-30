@@ -39,7 +39,22 @@ class CompanyController extends Controller
      */
     public function store(StoreCompany $request)
     {
-        Company::create($request->all());
+        $requestData = $request->all();
+
+        if($request->hasFile('logo'))
+        {
+            // Parse filename
+            $filenameWithExtension = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('logo')->storeAs('public', $fileNameToStore);
+            // Update logo value with the path of the image
+            $requestData['logo'] = $path;
+        }
+
+        Company::create($requestData);
    
         return redirect()->route('companies.index')
                         ->with('success','Company created successfully.');
@@ -76,7 +91,22 @@ class CompanyController extends Controller
      */
     public function update(StoreCompany $request, Company $company)
     {
-        $company->update($request->all());
+        $requestData = $request->all();
+
+        if($request->hasFile('logo'))
+        {
+            // Parse filename
+            $filenameWithExtension = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('logo')->storeAs('public', $fileNameToStore);
+            // Update logo value with the path of the image
+            $requestData['logo'] = $path;
+        }
+
+        $company->update($requestData);
   
         return redirect()->route('companies.index')
                         ->with('success','Company updated successfully');

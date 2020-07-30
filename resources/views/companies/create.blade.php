@@ -9,7 +9,7 @@
     <!-- /.card-header -->
     <!-- Horizontal Form -->
     <!-- form start -->
-    <form class="form-horizontal" action="{{ route('companies.store') }}" method="POST">
+    <form class="form-horizontal" action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="card-body">
@@ -23,6 +23,12 @@
                 <label for="email" class="col-sm-2 col-form-label">{{ __('Email') }}</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="logo" class="col-sm-2 col-form-label">{{ __('Logo') }}</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="logo" name="logo">
                 </div>
             </div>
             <div class="form-group row">
