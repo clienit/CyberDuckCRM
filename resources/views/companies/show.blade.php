@@ -18,7 +18,7 @@
         </div>
         <div class="callout callout-info">
             <h5>{{ __('Logo:') }}</h5>
-            <img src="{{ asset($company->logo) }}">
+            <img src="{{ asset('storage/'.$company->logo) }}">
         </div>
         <div class="callout callout-info">
             <h5>{{ __('Website:') }}</h5>
