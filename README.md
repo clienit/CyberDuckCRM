@@ -1,6 +1,6 @@
 ## About Installation
 
-- run: composer update
+- run: composer install
 - run: npm install
 - run: npm run dev
 - Create you database for MySQL
