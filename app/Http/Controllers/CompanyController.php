@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Model\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompany;
+use App\Traits\UploadTrait;
 
 class CompanyController extends Controller
 {
+    use UploadTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -43,14 +46,11 @@ class CompanyController extends Controller
 
         if($request->hasFile('logo'))
         {
-            // Parse filename
-            $filenameWithExtension = $request->file('logo')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
-            $extension = $request->file('logo')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('logo')->storeAs('public', $fileNameToStore);
-            // Update logo value with the path of the image
+            // Get image file
+            $image = $request->file('logo');
+            // Upload image
+            $path = $this->uploadFile($image);
+            // Update request data image path
             $requestData['logo'] = $path;
         }
 
@@ -95,14 +95,11 @@ class CompanyController extends Controller
 
         if($request->hasFile('logo'))
         {
-            // Parse filename
-            $filenameWithExtension = $request->file('logo')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
-            $extension = $request->file('logo')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('logo')->storeAs('public', $fileNameToStore);
-            // Update logo value with the path of the image
+            // Get image file
+            $image = $request->file('logo');
+            // Upload image
+            $path = $this->uploadFile($image);
+            // Update request data image path
             $requestData['logo'] = $path;
         }
 
