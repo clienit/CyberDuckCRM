@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::resource('companies', 'CompanyController');
-Route::resource('employees', 'EmployeeController');
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('companies', 'CompanyController');
+	Route::resource('employees', 'EmployeeController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home');
+});

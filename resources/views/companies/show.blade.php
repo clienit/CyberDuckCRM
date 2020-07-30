@@ -18,7 +18,11 @@
         </div>
         <div class="callout callout-info">
             <h5>{{ __('Logo:') }}</h5>
-            <img src="{{ asset('storage/'.$company->logo) }}">
+            <ul class="users-list clearfix">
+                <li>
+                    <img src="{{ asset('storage/'.$company->logo) }}">
+                </li>
+            </ul>
         </div>
         <div class="callout callout-info">
             <h5>{{ __('Website:') }}</h5>
