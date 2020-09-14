@@ -13,3 +13,8 @@
 
 - source code: https://github.com/clienit/CyberDuckCRM/tree/dev
 - clone: git clone --branch dev https://github.com/clienit/CyberDuckCRM.git
+
+## Testing
+
+- Enable `extension=pdo_sqlite` and `extension=gd2` in php.ini file
+- run: php artisan test
